@@ -1,0 +1,57 @@
+
+/*PROGRAMA PARA CALCULAR UN VALOR EXPONENCIAL*/
+
+#include <iostream>
+
+using namespace std;
+long double exponencial(double x, int n);
+
+/*FUNCION PARA CALCULAR VALOR EXPONENCIAL
+ ENTRADA: real x(exponente), entero n(numero de sumandos
+ Salida: long double result( resultado de la exponencial)*/
+
+long double exponencial( double x, int n){
+    
+    int i;
+    long double result;
+    long double num;
+    long double dem;
+    result=0;
+    num=1;
+    dem=1;
+    
+    for(i=1;i<=n;i++){
+        
+        num*=x; //Numerador va multiplicando la x
+        dem*=i; //Denominador va multiplicando un termino mas
+        
+        result+=(num/dem);
+        
+    }
+    result++;  //Añadir el primer valor que no introducimos al principio ya que !0=0;
+    return result;
+    
+    
+}
+
+
+int main(){
+    
+    int n; //Numero de terminos de la serie
+    double x; //Termino al que se eleva el exponente
+    long double expon;
+    
+    
+    cout << "¿Cuantos valores quieres que se operen en la sumatoria?" << endl;
+    cin >> n;
+    
+    cout << "¿A que valor quieres elevar en la función exponencial?" << endl;
+    cin >> x;
+    
+    expon=exponencial(x,n );
+  
+    cout << "El valor es: " <<expon << endl;
+    
+    return 0;
+}
+
